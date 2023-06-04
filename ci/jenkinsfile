@@ -34,7 +34,7 @@ pipeline {
                 script {
                     def shortHash = sh(returnStdout: true, script: 'git rev-parse --short HEAD').trim()
                     def commitMsg = sh(returnStdout: true, script: 'git log -1 --pretty=format:"[%an] %s"').trim()
-                    currentBuild.displayName = "${env.BUILD_ID} ${shortHash}"
+                    currentBuild.displayName = "${env.BUILD_ID} - ${shortHash}"
                     currentBuild.description = "${commitMsg}"
                     sh "make docker_build"
                     sh "make run_in_docker"
