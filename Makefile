@@ -45,6 +45,7 @@ run_in_docker:
 	$(DOCKER_BINARY) run \
 		$(DOCKER_BINARY_RUNTIME) \
 		--rm \
+		--security-opt seccomp=unconfined \
 		--ulimit core=-1 \
 		--entrypoint bash \
 		--workdir /h2oai \
